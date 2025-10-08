@@ -164,9 +164,9 @@ def plotting_values(simple_or_multiple, test_set_created, prediction, response, 
         predictors = predictors.flatten()
     plt.scatter(predictors, response, color=color, label=label)
     plt.plot(predictors, prediction, color = 'red', label = 'Best Fit Line')
-    xlabel = 'Engine Size' if simple_or_multiple == 'simple' else 'Car Dimensions'
+    xlabel = 'Survival Skills' if simple_or_multiple == 'simple' else 'All Predictors'
     plt.xlabel(xlabel)
-    ylabel = 'Price' if simple_or_multiple == 'simple' else 'Horsepower'
+    ylabel = 'Survival Score'
     plt.ylabel(ylabel)
     title = f'Linear Regression: {xlabel} vs {ylabel} ({label})'
     plt.title(title)
@@ -195,7 +195,7 @@ def input_prompts():
         use_testing_set = testing_input == 'yes'
 
     print(f'You have selected to {"create" if use_testing_set else "not create"} a testing set.')
-    print('Finally, would you like to one-hot encode the car names? (yes or no)')
+    print('Finally, would you like to one-hot encode the survivor names? (yes or no)')
 
     if simple_or_multiple == 'simple':
         print('Note: One-hot encoding is only applicable for multiple linear regression. Defaulting to no one-hot encoding.')
@@ -208,7 +208,7 @@ def input_prompts():
         else:
             one_hot_encode = encoding_input == 'yes'
 
-    print(f'You have selected to {"one-hot encode" if one_hot_encode else "not one-hot encode"} the car names.')
+    print(f'You have selected to {"one-hot encode" if one_hot_encode else "not one-hot encode"} the survivor names.')
     print('Performing linear regression...')
 
     return simple_or_multiple, use_testing_set, one_hot_encode
